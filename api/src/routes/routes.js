@@ -1,9 +1,13 @@
 const { Router } = require('express');
 const router = Router();
-const { getDataHandler } = require('../handlers/dataHandler');
+const { getProductsHandler, createProductHandler, deleteProductHandler, updateProductHandler } = require('../handlers/dataHandler');
 
 
-router.get('/home', getDataHandler);
+router.get('/', getProductsHandler);
+router.post('/create', createProductHandler);
+router.delete('/:id', deleteProductHandler);
+router.put('/:id', updateProductHandler);
+
 
 
 module.exports = router;
