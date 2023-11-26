@@ -1,0 +1,19 @@
+.pagination_button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pagination_button_center {
+  background-color: #c2c2c2; 
+  color: #fff; 
+}
+
+.pagination_button_edge {
+  background-color: #595959; 
+  color: #fff;
+}
