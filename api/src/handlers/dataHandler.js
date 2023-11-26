@@ -16,8 +16,8 @@ const createProductHandler = async (req,res) => {
    
     if(!title || !price || !description || !category || !image || !rating) return res.status(400).send("Mandatory data is missing.")
     try {
-        await createProduct(title, price, description, category, image, rating)
-        return res.status(200).send("The product has been created successfully")
+        const messageCreated = await createProduct(title, price, description, category, image, rating)
+        return res.status(200).send(messageCreated)
    } catch (error) {
         return res.status(400).json({error: error.message}) 
    }

@@ -9,7 +9,7 @@ import Pagination from './Pagination.jsx';
 export default function DataTable() {
   const allProducts = useSelector((state) => state.allProducts);
   //const productsCopy = useSelector((state) => state.productsCopy);
-  //console.log(allProducts);
+  console.log(allProducts);
   const itemsPerPage = 7;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(allProducts.length / itemsPerPage);
@@ -31,9 +31,7 @@ export default function DataTable() {
           <Sections/>
           {
             allProducts.length === 0 ?
-              <div>
-                <h4>Loading...</h4>
-              </div>
+                <h1 className=' py-10'><b>Loading...</b></h1>
             :
             productsToDisplay.map((product, index) => <Product product={product} key={index} />)
           }

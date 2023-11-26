@@ -43,8 +43,8 @@ const createProduct = async (title, price, description, category, image, rating)
            defaults: { title, price, description, category, image, rating }
         });
         
-        if(!created) throw new Error("The product you are trying to create already exists.")
-
+        if(!created) return("The product already exists.")
+        return("")
    } catch (error) {
         throw new Error(error.message);
    }
@@ -58,7 +58,7 @@ const updateProduct = async (id, title, price, description, category, image, rat
            { where: { id }}
         );
         
-        if(!productUpdated) throw new Error("The product you are trying to update doesnt exists.")
+        if(!productUpdated) return("The product doesnt exists.")
 
    } catch (error) {
         throw new Error(error.message);

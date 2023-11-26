@@ -1,10 +1,11 @@
-import { GET_PRODUCTS, ERROR } from "./actions";
+import { GET_PRODUCTS, CREATE_PRODUCT, ERROR } from "./actions";
 
 const initialState = {
-allProducts: [],  
-productsCopy: [],
-productDetail: {},
-errors: {}
+    allProducts: [],  
+    productsCopy: [],
+    productDetail: {},
+    messageCreated: "",
+    errors: {}
 };
 
 const reducer = (state= initialState, {type, payload}) => {
@@ -15,6 +16,11 @@ switch (type) {
            allProducts: payload,
            productsCopy: payload,
        }
+    case CREATE_PRODUCT:
+    return {
+        ...state,
+        messageCreated: payload
+    }
     case ERROR:
        return {
            ...state,
