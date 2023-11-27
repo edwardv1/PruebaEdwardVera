@@ -1,10 +1,11 @@
-import { GET_PRODUCTS, CREATE_PRODUCT, ERROR } from "./actions";
+import { GET_PRODUCTS, CREATE_PRODUCT, DELETE_PRODUCT, ERROR } from "./actions";
 
 const initialState = {
     allProducts: [],  
     productsCopy: [],
     productDetail: {},
     messageCreated: "",
+    messageDeleted: "",
     errors: {}
 };
 
@@ -17,10 +18,15 @@ switch (type) {
            productsCopy: payload,
        }
     case CREATE_PRODUCT:
-    return {
-        ...state,
-        messageCreated: payload
-    }
+        return {
+            ...state,
+            messageCreated: payload
+        }
+    case DELETE_PRODUCT:
+       return {
+           ...state,
+           messageDeleted: payload
+       }
     case ERROR:
        return {
            ...state,

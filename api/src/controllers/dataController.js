@@ -44,7 +44,7 @@ const createProduct = async (title, price, description, category, image, rating)
         });
         
         if(!created) return("The product already exists.")
-        return("")
+        return("The product has been created")
    } catch (error) {
         throw new Error(error.message);
    }
@@ -71,9 +71,9 @@ const deleteProduct = async(id) => {
         const productDeleted = await Product.findByPk(id);
         if(productDeleted) {
             await Product.destroy({where: {id}});
-            return productDeleted;
+            return ("The product has been deleted.");
         }
-        throw new Error(`The product doesnt exists`);
+        return ("The product doesnt exists");
     } catch (error) {
         throw new Error(error.message);
     }

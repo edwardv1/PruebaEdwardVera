@@ -22,6 +22,9 @@ export default function Sections() {
         <div className=' bg-gray-200 border-b-2 border-gray-400 h-full min-w-[260px] flex text-center justify-center items-center '>
             <h4><b>Reviews</b></h4>   
         </div>
+        <div className=' bg-gray-300 border-b-2 border-gray-400 h-full min-w-[180px] flex text-center justify-center items-center '>
+               
+        </div>
     </div>
   )
 }
