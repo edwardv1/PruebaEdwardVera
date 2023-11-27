@@ -26,13 +26,11 @@ export const createProduct = (payload) => {
   return async (dispatch) => {
      try {
         const response = await axios.post("/create", payload);
-        console.log(response.data);
         return dispatch({
            type: CREATE_PRODUCT,
            payload: response.data
         })
      } catch (error) {
-      console.log(error);
         return dispatch({
            type: ERROR,
            payload: "An error has occurred while creating the product!",
@@ -54,13 +52,11 @@ export const deleteProduct = (id) => {
   return async (dispatch) => {
      try {
         const response = await axios.delete(`/${id}`);
-        console.log(response.data);
         return dispatch({
            type: DELETE_PRODUCT,
            payload: response.data
         });  
      } catch (error) {
-      console.log(error.message);
         return dispatch({
            type: "ERROR",
            payload: "An error occurred while deleting the product! try again!"
@@ -76,4 +72,24 @@ export const clearMessageDeleted = (payload) => {
        payload: payload
      })
   }
+}
+
+
+export const updateProduct = (payload) => { 
+  return async (dispatch) => {
+     try {
+        const response = await axios.put("/update", payload);
+        console.log(response.data);
+        return dispatch({
+           type: CREATE_PRODUCT,
+           payload: response.data
+        })
+     } catch (error) {
+      console.log(error);
+        return dispatch({
+           type: ERROR,
+           payload: "An error has occurred while updating the product!",
+        })
+     }
+  };
 }

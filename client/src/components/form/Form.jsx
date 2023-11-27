@@ -4,19 +4,20 @@ import validationInputs from "./validationInputs.js";
 import validationSend from "./validationSend.js";
 import ButtonCreate from '../buttons/ButtonCreate.jsx';
 import ButtonCancel from '../buttons/ButtonCancel.jsx';
-import { createProduct, getAllProducts } from '../../redux/actions.js';
+import { createProduct, getAllProducts, updateProduct } from '../../redux/actions.js';
+import ButtonUpdate from '../buttons/ButtonUpdate.jsx';
 
-export default function Form({onCancel}) {
+export default function Form({ onCancel, isEdit, productToUpdate }) {
     const dispatch = useDispatch();
 
     const [input, setInput]= useState({
-        name: "",
-        image: "",
-        category: "",
-        price: "",
-        review: "",
-        description: "",
-      });
+      name: isEdit ? productToUpdate.title : "",
+      image: isEdit ? productToUpdate.image : "",
+      category: isEdit ? productToUpdate.category : "",
+      price: isEdit ? productToUpdate.price.toString() : "",
+      review: isEdit ? productToUpdate.rating.rate.toString() : "",
+      description: isEdit ? productToUpdate.description : "",
+    });
     const [errors, setErrors] = useState({
         name: "",
         image: "",
@@ -36,13 +37,13 @@ export default function Form({onCancel}) {
 
     const [disable, setDisable]= useState(false);
 
-    // Este useEffect controla que el boton "Enviar" se habilite o no
+    // Este useEffect controla que el boton "Create" se habilite o no
     useEffect(() => { 
-        let errExists = validationSend(errors, input);
+        let errExists = validationSend(errors);
         errExists
         ? setDisable(true)
         : setDisable(false)
-    }, [errors, input]);
+    }, [errors]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -57,44 +58,44 @@ export default function Form({onCancel}) {
         });
     };
 
-    // Valida los campos solo si el usuario interactua con ellos (touched)
+    //Valida los campos solo si el usuario interactua con ellos (touched) o cuando isEdit esta activo (para que verifique errores en primera instancia)
     useEffect(() => {
-        if (touched.name) {
+        if (touched.name || isEdit) {
           const validationErrors = validationInputs({ name: input.name });
           setErrors((prevErrors) => ({
             ...prevErrors,
             name: validationErrors.name,
           }));
         }
-        if (touched.image) {
+        if (touched.image || isEdit) {
           const validationErrors = validationInputs({ image: input.image });
           setErrors((prevErrors) => ({
             ...prevErrors,
             image: validationErrors.image,
           }));
         }
-        if (touched.category) {
+        if (touched.category || isEdit) {
           const validationErrors = validationInputs({ category: input.category });
           setErrors((prevErrors) => ({
             ...prevErrors,
             category: validationErrors.category,
           }));
         }
-        if (touched.price) {
+        if (touched.price || isEdit) {
           const validationErrors = validationInputs({ price: input.price });
           setErrors((prevErrors) => ({
             ...prevErrors,
             price: validationErrors.price,
           }));
         }
-        if (touched.review) {
+        if (touched.review || isEdit) {
           const validationErrors = validationInputs({ review: input.review });
           setErrors((prevErrors) => ({
             ...prevErrors,
             review: validationErrors.review,
           }));
         }
-        if (touched.description) {
+        if (touched.description || isEdit) {
           const validationErrors = validationInputs({ description: input.description });
           setErrors((prevErrors) => ({
             ...prevErrors,
@@ -138,13 +139,56 @@ export default function Form({onCancel}) {
         });
         } catch (error) {
           window.alert(error.message);
-        }
       }
+    }
+
+    const handleSubmitUpdate = (event) => {
+       // Verifica si la cadena tiene una coma, en ese caso la convierte un número y reemplaza la coma por punto
+       const priceString = String(input.price);
+       const hasComma = priceString.includes(','); 
+       const formattedPrice = hasComma ? parseFloat(priceString.replace(',', '.')) : parseFloat(priceString);
+       
+       //Creo un objeto para guardar en BD respetando el formato del objeto obtenido de la API externa
+       let data = {}
+       if(input){
+         data.id = productToUpdate?.id;
+         data.title = input.name;
+         data.price = formattedPrice;
+         data.description = input.description;
+         data.category = input.category;
+         data.image = input.image;
+         data.rating = {
+           rate: input.review,
+           count: productToUpdate?.rating.count,
+         };
+       }
+       
+       try{
+         event.preventDefault();
+         dispatch(updateProduct(data));
+         dispatch(getAllProducts()); 
+         setInput({
+           name: "",
+           image: "",
+           category: "",
+           price: "",
+           review: "",
+           description: "",
+         });
+         } catch (error) {
+           window.alert(error.message);
+       }
+    };
  
   return (
     <div className=' flex flex-col w-[400px]'>
-        <h1 className=' text-blue-500'><b>Create a new Product</b></h1>
-        <form onSubmit={handleSubmit} >
+        {
+          isEdit ?
+          <h1 className=' text-blue-500'><b>Edit Product</b></h1>
+          :
+          <h1 className=' text-blue-500'><b>Create Product</b></h1>
+        }
+        <form onSubmit={isEdit ? handleSubmitUpdate : handleSubmit} >
             <div className="">
                 <div className="flex flex-col flex-grow">
                     <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Name</label>
@@ -238,8 +282,14 @@ export default function Form({onCancel}) {
                     </section>
             </div>
             <div className="flex justify-center items-center gap-6">
-              <ButtonCancel onClick={onCancel}/>
-              <ButtonCreate onClick={handleSubmit} onCloseModal={onCancel} disable={disable}/> 
+              <ButtonCancel onClick={onCancel}/> 
+              {
+                isEdit ? 
+                <ButtonUpdate onClick={handleSubmitUpdate} onCloseModal={onCancel} disable={disable}/>
+                :
+                <ButtonCreate onClick={handleSubmit} onCloseModal={onCancel} disable={disable}/> 
+              }
+              
             </div>
         </form>
     </div>

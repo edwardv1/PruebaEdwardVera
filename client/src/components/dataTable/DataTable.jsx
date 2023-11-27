@@ -25,9 +25,9 @@ export default function DataTable() {
   const productsToDisplay = allProducts.slice(startIndex, endIndex);
 
   return (
-    <div className=" bg-gray-50 shadow-md rounded-lg p-4 overflow-hidden overflow-x-auto text-center w-[80%]">
+    <div className=" bg-gray-50 shadow-md rounded-lg p-4 overflow-hidden overflow-x-auto text-center h-[900px] w-[80%]">
         <Header/>
-        <section className=' overflow-x-scroll'>  
+        <section className=' overflow-x-scroll h-[758px]'>  
           <Sections/>
           {
             allProducts.length === 0 ?

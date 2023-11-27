@@ -25,14 +25,13 @@ const createProductHandler = async (req,res) => {
 
 // Función manejadora para actualizar productos de la DB
 const updateProductHandler = async (req,res) => { 
-    const {id} = req.params;
-    const { title, price, description, category, image, rating } = req.body;
+    const { id, title, price, description, category, image, rating } = req.body;
 
-    if(!title || !price || !description || !category || !image || !rating) return res.status(400).send("Mandatory data is missing.")
+    if(!id || !title || !price || !description || !category || !image || !rating) return res.status(400).send("Mandatory data is missing.")
    
     try {
-        await updateProduct(id, title, price, description, category, image, rating)
-        return res.status(200).send(`The product has been updated successfully`)
+        const messageUpdated = await updateProduct(id, title, price, description, category, image, rating)
+        return res.status(200).send(messageUpdated)
    } catch (error) {
         return res.status(400).json({error: error.message}) 
    }

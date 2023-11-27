@@ -6,7 +6,7 @@ const { getProductsHandler, createProductHandler, deleteProductHandler, updatePr
 router.get('/products', getProductsHandler);
 router.post('/create', createProductHandler);
 router.delete('/:id', deleteProductHandler);
-router.put('/:id', updateProductHandler);
+router.put('/update', updateProductHandler);
 
 
 

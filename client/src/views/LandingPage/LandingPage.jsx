@@ -77,7 +77,7 @@ const LandingPage = () => {
 
   //Ejecuto funciones para mostrar mensajes mediante Toastify
   if(messageCreated.length > 0) {
-    if(messageCreated === "The product already exists."){
+    if(messageCreated === "The product already exists." || messageCreated === "The product doesn't exist." || messageCreated === "An unexpected situation occurred during product update."){
       mensaje_error_Toast();
     }
     mensaje_success_Toast();

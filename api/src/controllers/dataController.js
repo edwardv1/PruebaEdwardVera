@@ -44,7 +44,7 @@ const createProduct = async (title, price, description, category, image, rating)
         });
         
         if(!created) return("The product already exists.")
-        return("The product has been created")
+        return("The product has been created.")
    } catch (error) {
         throw new Error(error.message);
    }
@@ -53,12 +53,17 @@ const createProduct = async (title, price, description, category, image, rating)
 // Función para actualizar productos de la DB
 const updateProduct = async (id, title, price, description, category, image, rating) => {
     try {
-        const productUpdated =  await Product.update(
+        const [rowsUpdated] =  await Product.update(
            { title, price, description, category, image, rating },
            { where: { id }}
         );
-        
-        if(!productUpdated) return("The product doesnt exists.")
+        if(rowsUpdated === 1) {
+            return "The product has been updated.";
+        } else if(rowsUpdated === 0) {
+            return "The product doesn't exist.";
+        } else {
+            return "An unexpected situation occurred during product update.";
+        }
 
    } catch (error) {
         throw new Error(error.message);
