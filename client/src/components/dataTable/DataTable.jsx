@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Header from './Header.jsx'
 import Sections from './Sections'
 import { useSelector } from "react-redux";
-import styles from "./DataTable.module.css"
 import Product from './Product';
 import Pagination from './Pagination.jsx';
 

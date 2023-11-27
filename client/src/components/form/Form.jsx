@@ -191,7 +191,7 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
     };
  
   return (
-    <div className=' flex flex-col w-[400px]'>
+    <div className=' flex flex-col w-[300px] sm:w-[400px]'>
         {
           isEdit ?
           <h1 className=' text-blue-500'><b>Edit Product</b></h1>
@@ -199,7 +199,7 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
           <h1 className=' text-blue-500'><b>Create Product</b></h1>
         }
         <form onSubmit={isEdit ? handleSubmitUpdate : handleSubmit} >
-            <div className="">
+            <div>
                 <div className="flex flex-col flex-grow">
                     <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Name</label>
                     <input 
@@ -277,7 +277,7 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
                     type="text" 
                     name="description" 
                     value={input.description} 
-                    className=" w-full h-[70px] sm:h-[100px] md:h-[90px] rounded-lg pl-2 pb-12 sm:pb-14 text-start border-2 border-blue-500 xl:h-[190px] xl:pb-40"
+                    className=" w-full h-[70px] sm:h-[100px] md:h-[120px] rounded-lg pl-2 pb-12 sm:pb-14 text-start border-2 border-blue-500 "
                     placeholder="Enter a description here..."
                     onChange={(event) => handleInputChange(event)}
                     />

@@ -12,7 +12,7 @@ export default function ProductsByPrice ({ allProducts }) {
 
   return (
     <div className=' flex flex-col gap-14 text-center'>
-        <h1 className='mt-6 text-4xl'>Products with the <b>Lowest price</b> :</h1>
+        <h1 className='mt-6 text-2xl sm:text-4xl'>Products with the <b>Lowest price</b> :</h1>
         <div className=' flex flex-wrap justify-around gap-4'>
             {lowestPrices.map((product) => (
                 <ProductCard key={product.id} name={product.title} price={product.price} image={product.image} />
@@ -20,7 +20,7 @@ export default function ProductsByPrice ({ allProducts }) {
         </div>
         
         
-        <h1 className='text-4xl'>Products with the <b>Highest price</b>:</h1>
+        <h1 className='text-2xl sm:text-4xl'>Products with the <b>Highest price</b>:</h1>
         <div className=' flex flex-wrap justify-around gap-4'>
             {highestPrices.map((product) => (
                 <ProductCard key={product.id} name={product.title} price={product.price} image={product.image} />

@@ -5,7 +5,7 @@ export default function Pagination({ currentPage, totalPages, onChangePage }) {
   const isLastPage = currentPage === totalPages;
 
   return (
-    <div className=" w-full h-[60px] flex items-center justify-center gap-8 ">
+    <div className=" w-full h-[60px] flex items-center justify-center gap-2 sm:gap-8 ">
       <button
         className="mx-1 px-3 py-2 rounded bg-gray-400"
         onClick={() => onChangePage(1)}

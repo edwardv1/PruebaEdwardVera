@@ -55,7 +55,7 @@ const validationInputs = (input) => {
   if (!input.description) {
     errors.description = "You must enter a description.";
   } else {
-    if (input.description.length > 300) errors.description = "You should not enter more than 300 characters.";
+    if (input.description.length > 500) errors.description = "You should not enter more than 500 characters.";
   }
 
   return errors;

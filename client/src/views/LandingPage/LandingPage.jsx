@@ -38,7 +38,7 @@ const LandingPage = () => {
         toastId: "custom-toast-id",
         style: {
             marginTop: "60px",
-            width: "600px",
+            width: "500px",
         },
     });
     }
@@ -65,7 +65,7 @@ const LandingPage = () => {
         toastId: "custom-toast-id",
         style: {
           marginTop: "60px",
-          width: "600px",
+          width: "500px",
         },
       });
     }

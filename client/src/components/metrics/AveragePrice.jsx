@@ -12,7 +12,7 @@ export default function AveragePrice ({ allProducts }) {
 
   return (
     <div className=" w-1/2 h-[100px] text-white bg-slate-700 flex items-center justify-center">
-        <h1 className=' text-4xl'>Average price: ${averagePrice.toFixed(2)}</h1>
+        <h1 className=' text-[17px] sm:text-4xl'>Average price: ${averagePrice.toFixed(2)}</h1>
     </div>
   )
 }

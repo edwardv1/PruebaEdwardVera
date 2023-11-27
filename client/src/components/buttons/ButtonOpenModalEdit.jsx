@@ -6,9 +6,9 @@ export default function ButtonOpenModalEdit({ onClick }) {
     <>
       <button
         onClick={onClick}
-        className=" bg-green-500 w-[44px] h-[44px] rounded-full m-0 mx-5 flex items-center justify-center cursor-pointer"
+        className=" bg-green-500 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] rounded-full m-0 mx-5 flex items-center justify-center cursor-pointer"
       >
-        <img src={editIcon} alt="" />
+        <img src={editIcon} className=" w-[20px] sm:w-[30px]" alt="" />
       </button>
     </>
   );
