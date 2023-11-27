@@ -8,6 +8,5 @@ export default function Modal({ onClose, isEdit, productToUpdate }) {
         <Form onCancel={onClose} isEdit={isEdit} productToUpdate={productToUpdate} />
       </div>
     </div>
-
   )
 }

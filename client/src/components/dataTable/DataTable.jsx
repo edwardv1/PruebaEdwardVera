@@ -26,11 +26,11 @@ export default function DataTable() {
   return (
     <div className=" bg-gray-50 shadow-md rounded-lg mt-4 p-4 overflow-hidden overflow-x-auto text-center h-[900px] w-[80%]">
         <Header/>
-        <section className=' overflow-x-scroll h-[758px]'>  
+        <section className=' overflow-x-scroll h-[758px] '>  
           <Sections/>
           {
             allProducts.length === 0 ?
-                <h1 className=' py-10'><b>Loading...</b></h1>
+              <h1 className=' mt-[320px]'><b>Loading...</b></h1>
             :
             productsToDisplay.map((product, index) => <Product product={product} key={index} />)
           }
