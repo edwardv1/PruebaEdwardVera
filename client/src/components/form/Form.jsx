@@ -106,10 +106,15 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
 
     //Funcion que despacha los inputs
     const handleSubmit = (event) => {
-      // Verifica si la cadena tiene una coma, en ese caso la convierte un número y reemplaza la coma por punto
+      // Verifica si el precio tiene una coma, en ese caso la convierte un número y reemplaza la coma por punto
       const priceString = String(input.price);
       const hasComma = priceString.includes(','); 
       const formattedPrice = hasComma ? parseFloat(priceString.replace(',', '.')) : parseFloat(priceString);
+
+      // Verifica si la califiacion contiene una coma, en ese caso la convierte un número y reemplaza la coma por punto
+      const reviewString = String(input.review);
+      const hasCommaInReview = reviewString.includes(',');
+      const formattedReview = hasCommaInReview ? parseFloat(reviewString.replace(',', '.')): parseFloat(reviewString);
       
       //Creo un objeto para guardar en BD respetando el formato del objeto obtenido de la API externa
       let data = {}
@@ -120,7 +125,7 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
         data.category = input.category;
         data.image = input.image;
         data.rating = {
-          rate: input.review,
+          rate: formattedReview,
           count: 1
         };
       }
@@ -143,10 +148,15 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
     }
 
     const handleSubmitUpdate = (event) => {
-       // Verifica si la cadena tiene una coma, en ese caso la convierte un número y reemplaza la coma por punto
+       // Verifica si el precio contiene una coma, en ese caso la convierte un número y reemplaza la coma por punto
        const priceString = String(input.price);
        const hasComma = priceString.includes(','); 
        const formattedPrice = hasComma ? parseFloat(priceString.replace(',', '.')) : parseFloat(priceString);
+
+       // Verifica si la califiacion contiene una coma, en ese caso la convierte un número y reemplaza la coma por punto
+       const reviewString = String(input.review);
+       const hasCommaInReview = reviewString.includes(',');
+       const formattedReview = hasCommaInReview ? parseFloat(reviewString.replace(',', '.')): parseFloat(reviewString);
        
        //Creo un objeto para guardar en BD respetando el formato del objeto obtenido de la API externa
        let data = {}
@@ -158,7 +168,7 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
          data.category = input.category;
          data.image = input.image;
          data.rating = {
-           rate: input.review,
+           rate: formattedReview,
            count: productToUpdate?.rating.count,
          };
        }

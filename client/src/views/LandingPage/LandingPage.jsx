@@ -4,6 +4,7 @@ import { clearMessageCreated, clearMessageDeleted, getAllProducts } from "../../
 import DataTable from "../../components/dataTable/DataTable.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Metrics from "../../components/metrics/Metrics.jsx";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -89,9 +90,16 @@ const LandingPage = () => {
   }
 
     return (
-      <div className=" bg-slate-400 w-full p-8 flex flex-col items-center justify-center">
+      <div className=" bg-slate-400 pb-6 w-full flex flex-col items-center justify-center">
           <ToastContainer/>
+          <div className=" flex w-full h-[60px] bg-blue-500 text-center items-center justify-center">
+            <h1 className=" text-4xl text-white"><b>DataTable</b></h1>
+          </div>
           <DataTable/>
+          <div className=" flex w-full mt-6 h-[60px] bg-blue-500 text-center items-center justify-center">
+            <h1 className=" text-4xl text-white"><b>Metrics</b></h1>
+          </div>
+          <Metrics/>
       </div>
     )
   }
