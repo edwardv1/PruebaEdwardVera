@@ -286,7 +286,7 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
                         <p className="md:pl-1 text-red-600">{errors.description}</p>
                         ) : (
                         input.description && !errors.description ? (
-                            <p className="md:pl-1 text-lime-600">{`Maximum of 300 characters (${input.description.length}/300)`}</p>
+                            <p className="md:pl-1 text-lime-600">{`Maximum of  500 characters (${input.description.length}/500)`}</p>
                         ) : null
                     )}
                     </section>
