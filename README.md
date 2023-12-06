@@ -2,12 +2,13 @@
 
 Este proyecto es parte de una prueba técnica para el puesto de: Programador Web Frontend. Puedes ver el despliegue del proyecto [aquí](https://prueba-edward-vera.vercel.app/).
 
-## Pasos para ejecutar el proyecto en otro equipo:
+## Pasos para ejecutar el proyecto en otro equipo de forma local:
 
 ### Back-end (Carpeta /api):
 
 1. En la carpeta /api, ejecuta los siguientes comandos:
   - `npm install` (instala las dependencias)
+    - En la ruta /api/app.js (linea 15) cambia el dominio 'https://prueba-edward-vera.vercel.app' por tu dominio local (ejemplo: 'http://localhost:5173') 
   - `npm start` (inicia el servidor backend localmente)
 
 2. Configura la base de datos PostgreSQL.
@@ -27,6 +28,7 @@ Este proyecto es parte de una prueba técnica para el puesto de: Programador Web
 
 1. En la carpeta /client, ejecuta los siguientes comandos:
   - `npm install` (instala las dependencias)
+    - En la ruta /client/App.jsx (linea 5) cambia el dominio "https://pruebaedwardvera-production.up.railway.app/" por tu dominio local (ejemplo: "http://localhost:3001/")
   - `npm run dev` (inicia la aplicación frontend localmente)
 
 ## Lista de comandos utilizados:
