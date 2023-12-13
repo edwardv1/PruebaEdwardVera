@@ -4,7 +4,7 @@ import validationInputs from "./validationInputs.js";
 import validationSend from "./validationSend.js";
 import ButtonCreate from '../buttons/ButtonCreate.jsx';
 import ButtonCancel from '../buttons/ButtonCancel.jsx';
-import { createProduct, getAllProducts, updateProduct } from '../../redux/actions.js';
+import { getAllProducts, createProduct, updateProduct } from '../../redux/features/productSlice.js';
 import ButtonUpdate from '../buttons/ButtonUpdate.jsx';
 
 export default function Form({ onCancel, isEdit, productToUpdate }) {

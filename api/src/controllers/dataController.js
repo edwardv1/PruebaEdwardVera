@@ -43,8 +43,8 @@ const createProduct = async (title, price, description, category, image, rating)
            defaults: { title, price, description, category, image, rating }
         });
         
-        if(!created) return("The product already exists.")
-        return("The product has been created.")
+        if(!created) return ("The product already exists.")
+        return ("The product has been created.")
    } catch (error) {
         throw new Error(error.message);
    }
@@ -58,11 +58,11 @@ const updateProduct = async (id, title, price, description, category, image, rat
            { where: { id }}
         );
         if(rowsUpdated === 1) {
-            return "The product has been updated.";
+            return ("The product has been updated.");
         } else if(rowsUpdated === 0) {
-            return "The product doesn't exist.";
+            return ("The product doesn't exist.");
         } else {
-            return "An unexpected situation occurred during product update.";
+            return ("An unexpected situation occurred during product update.");
         }
 
    } catch (error) {

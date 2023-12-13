@@ -5,7 +5,7 @@ import AveragePrice from './AveragePrice';
 import AverageRating from './AverageRating';
 
 export default function Metrics() {
-    const allProducts = useSelector((state) => state.allProducts);
+    const allProducts = useSelector((state) => state.product.allProducts);
     
   return (
     <div className=' w-full'>

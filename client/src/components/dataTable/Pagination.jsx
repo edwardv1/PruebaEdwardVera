@@ -20,14 +20,13 @@ export default function Pagination({ currentPage, totalPages, onChangePage }) {
       >
         &lt;
       </button>
-      <button
+      <div
         className={`mx-1 px-3 py-2 rounded ${
           currentPage === currentPage ? "bg-blue-500 text-white" : "bg-gray-300"
         }`}
-        onClick={() => onChangePage(currentPage)}
       >
         {currentPage}
-      </button>
+      </div>
       <button
         className="mx-1 px-3 py-2 rounded bg-gray-300"
         onClick={() => onChangePage(currentPage + 1)}

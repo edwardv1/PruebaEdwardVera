@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearMessageCreated, clearMessageDeleted, getAllProducts } from "../../redux/actions.js";
+import { getAllProducts, clearMessageCreatedOrUpdated, clearMessageDeleted } from "../../redux/features/productSlice.js";
 import DataTable from "../../components/dataTable/DataTable.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,8 +8,8 @@ import Metrics from "../../components/metrics/Metrics.jsx";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
-  const messageCreated = useSelector((state) => state.messageCreated);
-  const messageDeleted = useSelector((state) => state.messageDeleted);
+  const messageCreated = useSelector((state) => state.product.messageCreatedOrUpdated);
+  const messageDeleted = useSelector((state) => state.product.messageDeleted);
 
   //Mostrar mensaje cuando se crea o elimina un registro en el form con Toastify
   let currentToastIdSuccess = null;
@@ -82,7 +82,7 @@ const LandingPage = () => {
       mensaje_error_Toast();
     }
     mensaje_success_Toast();
-    dispatch(clearMessageCreated(""));
+    dispatch(clearMessageCreatedOrUpdated(""));
   }
   if(messageDeleted.length > 0) {
     mensaje_success_Toast();

@@ -2,14 +2,14 @@ import React from 'react'
 import ButtonCancel from '../buttons/ButtonCancel'
 import { useDispatch } from 'react-redux';
 import ButtonDelete from '../buttons/ButtonDelete';
-import { deleteProduct, getAllProducts } from '../../redux/actions';
+import { getAllProducts, deleteProduct } from '../../redux/features/productSlice';
 
 export default function ModalDelete({ id, name, onClose }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     dispatch(deleteProduct(id));
-    dispatch(getAllProducts())
+    dispatch(getAllProducts());
     onClose();
   };
 

@@ -6,9 +6,8 @@ import Product from './Product';
 import Pagination from './Pagination.jsx';
 
 export default function DataTable() {
-  const allProducts = useSelector((state) => state.allProducts);
-  //const productsCopy = useSelector((state) => state.productsCopy);
-  //console.log(allProducts);
+  const allProducts = useSelector((state) => state.product.allProducts);
+  const statusProduct = useSelector((state) => state.product.status);
   const itemsPerPage = 7;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(allProducts.length / itemsPerPage);
@@ -29,8 +28,11 @@ export default function DataTable() {
         <section className=' overflow-x-scroll h-[758px] '>  
           <Sections/>
           {
-            allProducts.length === 0 ?
+            statusProduct === "idle" || statusProduct === "loading" ?
               <h1 className=' mt-[320px]'><b>Loading...</b></h1>
+            :
+            allProducts.length === 0 ?
+              <h1 className=' mt-[320px]'><b>The data table is empty</b></h1>
             :
             productsToDisplay.map((product, index) => <Product product={product} key={index} />)
           }
