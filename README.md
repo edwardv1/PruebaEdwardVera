@@ -43,7 +43,7 @@ Este proyecto es parte de una prueba técnica para el puesto de: Programador Web
 - Instalación de dependencias:
   
    ```
-   npm i axios body-parser cors dotenv express morgan
+   npm i axios body-parser dotenv express morgan
    npm i -D nodemon
    npm i sequelize pg
    ```
