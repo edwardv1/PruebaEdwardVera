@@ -1,6 +1,6 @@
 # PruebaEdwardVera - Prueba Técnica Frontend
 
-Este proyecto es parte de una prueba técnica para el puesto de: Programador Web Frontend. Puedes ver el despliegue del proyecto <a href="https://prueba-edward-vera.vercel.app/" target="_blank">[aquí]</a> 
+Este proyecto es parte de una prueba técnica para el puesto de: Programador Web Frontend. Puedes ver el despliegue del proyecto <a href="https://prueba-edward-vera.vercel.app/" target="_blank" rel="noopener noreferrer">aquí</a> 
 
 ## Pasos para ejecutar el proyecto en otro equipo de forma local:
 
@@ -68,7 +68,7 @@ Este proyecto es parte de una prueba técnica para el puesto de: Programador Web
    npm i react-toastify
    ```
 
-### Link de la API externa: <a href="https://fakestoreapi.com/products" target="_blank">https://fakestoreapi.com/products</a>
+### Link de la API externa: <a href="https://fakestoreapi.com/products" target="_blank" rel="noopener noreferrer">https://fakestoreapi.com/products</a>
 
 
 
