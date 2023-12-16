@@ -6,11 +6,11 @@ import Product from './Product';
 import Pagination from './Pagination.jsx';
 
 export default function DataTable() {
-  const allProducts = useSelector((state) => state.product.allProducts);
+  const allProducts = useSelector((state) => state.product.allProducts) || [];
   const statusProduct = useSelector((state) => state.product.status);
   const itemsPerPage = 7;
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(allProducts.length / itemsPerPage);
+  const totalPages = Math.ceil(allProducts?.length / itemsPerPage);
 
   //Funcion para setear la pagina actual
   const handlePageChange = (page) => {

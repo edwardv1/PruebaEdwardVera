@@ -16,9 +16,9 @@ const LandingPage = () => {
   const mensaje_success_Toast = () => {
     let messageToDisplay;
     if(messageCreated.length > 1){
-      messageToDisplay = messageCreated
+      messageToDisplay = messageCreated;
     } else if(messageDeleted.length > 1) {
-      messageToDisplay = messageDeleted
+      messageToDisplay = messageDeleted;
     }
     if (currentToastIdSuccess) {
     toast.update(currentToastIdSuccess, {
@@ -77,17 +77,24 @@ const LandingPage = () => {
   }, [dispatch]);
 
   //Ejecuto funciones para mostrar mensajes mediante Toastify
-  if(messageCreated.length > 0) {
-    if(messageCreated === "The product already exists." || messageCreated === "The product doesn't exist." || messageCreated === "An unexpected situation occurred during product update."){
-      mensaje_error_Toast();
+  useEffect(() => {
+    if (messageCreated && messageCreated.length > 0) {
+      if (
+        messageCreated === "The product already exists." ||
+        messageCreated === "The product doesn't exist." ||
+        messageCreated === "An unexpected situation occurred during product update."
+      ) {
+        mensaje_error_Toast();
+      }
+      mensaje_success_Toast();
+      dispatch(clearMessageCreatedOrUpdated(""));
     }
-    mensaje_success_Toast();
-    dispatch(clearMessageCreatedOrUpdated(""));
-  }
-  if(messageDeleted.length > 0) {
-    mensaje_success_Toast();
-    dispatch(clearMessageDeleted(""));
-  }
+
+    if (messageDeleted && messageDeleted.length > 0) {
+      mensaje_success_Toast();
+      dispatch(clearMessageDeleted(""));
+    }
+  }, [messageCreated, messageDeleted, dispatch]);
 
     return (
       <div className=" bg-slate-400 pb-6 w-full flex flex-col items-center justify-center">
