@@ -8,7 +8,7 @@ export default function Metrics() {
     const allProducts = useSelector((state) => state.product.allProducts);
     
   return (
-    <div className=' w-full'>
+    <div data-testid="metricsTestId" className=' w-full'>
         <div className=' flex'>
             <AverageRating allProducts={allProducts}/>
             <AveragePrice allProducts={allProducts}/>
