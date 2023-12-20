@@ -43,12 +43,11 @@ describe("<DataTable />", ()=>{
         const loadingText = screen.getByText("Loading...");
         expect(loadingText).toBeInTheDocument();
     })
-    test('renders empty states texts h1', () => { 
+    test('renders empty state when there isnt products in the array', () => { 
         const store = mockStore({
             product: {
-                statusProduct: "loading",
+                statusProduct: "success",
                 allProducts: [], 
-                productsToDisplay: [],
             },
         });
         render(

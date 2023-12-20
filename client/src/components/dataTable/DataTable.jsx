@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from './Header.jsx'
+import Header from './Header/Header.jsx'
 import Sections from './Sections'
 import { useSelector } from "react-redux";
 import Product from './Product';

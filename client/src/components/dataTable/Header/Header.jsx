@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Modal from '../modal/Modal';
+import Modal from '../../modal/Modal';
 
 export default function Header() {
     const [isModalOpen, setIsModalOpen] = useState(false);
