@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import ButtonOpenModalEdit from '../buttons/ButtonOpenModalEdit'
-import ButtonOpenModalDelete from '../buttons/ButtonOpenModalDelete'
-import ModalDelete from '../modal/ModalDelete';
-import Modal from '../modal/Modal';
+import ButtonOpenModalEdit from '../../buttons/ButtonOpenModalEdit'
+import ButtonOpenModalDelete from '../../buttons/ButtonOpenModalDelete'
+import ModalDelete from '../../modal/ModalDelete';
+import Modal from '../../modal/Modal';
 
 
 export default function Product({product}) {

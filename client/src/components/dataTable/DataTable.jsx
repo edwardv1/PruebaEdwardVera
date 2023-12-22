@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header from './Header/Header.jsx'
 import Sections from './Sections'
 import { useSelector } from "react-redux";
-import Product from './Product';
+import Product from './Product/Product.jsx';
 import Pagination from './Pagination.jsx';
 
 export default function DataTable() {

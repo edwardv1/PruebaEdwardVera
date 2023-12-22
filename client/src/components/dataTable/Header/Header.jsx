@@ -3,6 +3,7 @@ import Modal from '../../modal/Modal';
 
 export default function Header() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    console.log(isModalOpen);
 
     //Creo los handlers para controlar el estado del boton para crear un nuevo producto.
     const handleNewButtonClick = () => {

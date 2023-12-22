@@ -191,7 +191,7 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
     };
  
   return (
-    <div className=' flex flex-col w-[300px] sm:w-[400px]'>
+    <div data-testid="formTestId" className=' flex flex-col w-[300px] sm:w-[400px]'>
         {
           isEdit ?
           <h1 className=' text-blue-500'><b>Edit Product</b></h1>
