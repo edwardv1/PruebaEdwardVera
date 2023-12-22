@@ -3,7 +3,6 @@ import editIcon from "../../assets/edit.png";
 
 export default function ButtonOpenModalEdit({ onClick }) {
   return (
-    <>
       <button
         data-testid="buttonOpenModalEdit"
         name="Open Modal Edit"
@@ -12,6 +11,5 @@ export default function ButtonOpenModalEdit({ onClick }) {
       >
         <img src={editIcon}  alt="Edit Icon" className=" w-[20px] sm:w-[30px]" />
       </button>
-    </>
   );
 }

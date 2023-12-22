@@ -88,7 +88,7 @@ describe("<Header/>", ()=> {
             </Provider>
         );
 
-        // Simula hacer click en el botón + News y verificar que el modal está presente
+        // Simula hacer click en el botón + News y verificar que el modal esté presente
         fireEvent.click(screen.getByText('+ New'));
         expect(screen.getByTestId('modalTestId')).toBeInTheDocument()
 
