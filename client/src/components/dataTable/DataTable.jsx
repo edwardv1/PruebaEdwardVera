@@ -23,16 +23,16 @@ export default function DataTable() {
   const productsToDisplay = allProducts.slice(startIndex, endIndex);
 
   return (
-    <div data-testid="dataTableTestId" className=" bg-gray-50 shadow-md rounded-lg mt-4 p-4 overflow-hidden overflow-x-auto text-center h-[900px] w-[80%]">
+    <div id="dataTable" data-testid="dataTableTestId" className=" bg-gray-50 shadow-md rounded-lg mt-4 p-4 overflow-hidden overflow-x-auto text-center h-[900px] w-[80%]">
         <Header/>
-        <section className=' overflow-x-scroll h-[758px] '>  
+        <section id='containerData' className=' overflow-x-scroll h-[758px] '>  
           <Sections/>
           {
             statusProduct === "idle" || statusProduct === "loading" ?
-              <h1 className=' mt-[320px]'><b>Loading...</b></h1>
+              <h1 id='statusLoading' className=' mt-[320px]'><b>Loading...</b></h1>
             :
             allProducts.length === 0 ?
-              <h1 className=' mt-[320px]'><b>The data table is empty</b></h1>
+              <h1 id='statusEmpty' className=' mt-[320px]'><b>The data table is empty</b></h1>
             :
             productsToDisplay.map((product, index) => <Product product={product} key={index} />)
           }
