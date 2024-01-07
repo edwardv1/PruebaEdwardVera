@@ -4,6 +4,7 @@ import editIcon from "../../assets/edit.png";
 export default function ButtonOpenModalEdit({ onClick }) {
   return (
       <button
+        id="buttonOpenModalEdit"
         data-testid="buttonOpenModalEdit"
         name="Open Modal Edit"
         onClick={onClick}

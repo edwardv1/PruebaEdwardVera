@@ -98,13 +98,13 @@ const LandingPage = () => {
 
     return (
       <div className=" bg-slate-400 pb-6 w-full flex flex-col items-center justify-center">
-          <ToastContainer/>
+          <ToastContainer id="toast"/>
           <div className=" flex w-full h-[60px] bg-blue-500 text-center items-center justify-center">
-            <h1 className=" text-4xl text-white"><b>DataTable</b></h1>
+            <h1 id="title1" className=" text-4xl text-white"><b>DataTable</b></h1>
           </div>
           <DataTable/>
           <div className=" flex w-full mt-6 h-[60px] bg-blue-500 text-center items-center justify-center">
-            <h1 className=" text-4xl text-white"><b>Metrics</b></h1>
+            <h1 id="title2" className=" text-4xl text-white"><b>Metrics</b></h1>
           </div>
           <Metrics/>
       </div>

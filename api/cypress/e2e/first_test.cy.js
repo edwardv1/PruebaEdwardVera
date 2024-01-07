@@ -1,8 +1,26 @@
+/// <reference types="cypress" />
+
 describe('Web Page', () => {
   it('check visit to web page', () => {
-    cy.visit('https://prueba-edward-vera.vercel.app/')
+    cy.visit("/")
   })
 })
+
+/*
+describe('Web Page', () => {
+  it('check visit to web page', () => {
+    cy.visit('https://www.google.com/')
+  })
+  it('button google', () => {
+    cy.visit('https://www.google.com/')
+    cy.get('.gNO89b')
+  })
+})
+*/
+
+
+
+
 
 // describe("Test grupo de botones", ()=> {
 //   it('check visit to web page', () => {
@@ -14,12 +32,3 @@ describe('Web Page', () => {
 //       //cy.contains('button', '+ New');
 //   })
 // })
-
-/*
-bucar por clase
-cy.get(.buttonCreate)
-bucar por id
-cy.get(#buttonCreate)
-Si quiero ver deshabilitado el boton:
-.should('be.desabled')
-*/

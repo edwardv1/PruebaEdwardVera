@@ -34,26 +34,26 @@ export default function Product({product}) {
   };
 
   return (
-    <div data-testid="productTestId" className=' flex'>
+    <div id='product' data-testid="productTestId" className=' flex'>
       <div className=' bg-gray-300 border-b-2 h-[100px] min-w-[180px] sm:min-w-[260px] flex text-center justify-center items-center '>
-        <h4 data-testid="productId" className=' text-xs sm:text-base'>{product.id}</h4>  
+        <h4 id='productId' data-testid="productId" className=' text-xs sm:text-base'>{product.id}</h4>  
       </div>
       <div className=' bg-gray-200 border-b-2 h-[100px] min-w-[180px] sm:min-w-[260px] flex text-center justify-center items-center '>
-        <h4 data-testid="productTitle" className=' text-xs sm:text-base'>{product.title}</h4>  
+        <h4 id="productTitle" data-testid="productTitle" className=' text-xs sm:text-base'>{product.title}</h4>  
       </div>
       <div className=' bg-gray-300 border-b-2 h-[100px] min-w-[180px] sm:min-w-[260px] flex justify-center items-center '>
-        <img data-testid="productImage" src={product.image} className=' shadow-md rounded-lg w-[50px]'  alt="" />  
+        <img id="productImage" data-testid="productImage" src={product.image} className=' shadow-md rounded-lg w-[50px]'  alt="" />  
       </div>
       <div className=' bg-gray-200 border-b-2 h-[100px] min-w-[180px] sm:min-w-[260px] flex text-center justify-center items-center '>
-        <h4 data-testid="productCategory" className=' text-xs sm:text-base'>{product.category}</h4>  
+        <h4 id="productCategory" data-testid="productCategory" className=' text-xs sm:text-base'>{product.category}</h4>  
       </div>
       <div className=' bg-gray-300 border-b-2 h-[100px] min-w-[180px] sm:min-w-[260px] flex text-center justify-center items-center '>
-        <h4 data-testid="productPrice" className=' text-xs sm:text-base'>{product.price}</h4>  
+        <h4 id="productPrice" data-testid="productPrice" className=' text-xs sm:text-base'>{product.price}</h4>  
       </div>
       <div className=' bg-gray-200 border-b-2 h-[100px] min-w-[180px] sm:min-w-[260px] flex text-center justify-center items-center '>
-        <h4 data-testid="productReview" className=' text-xs sm:text-base'>{product.rating.rate}</h4> 
+        <h4 id="productReview" data-testid="productReview" className=' text-xs sm:text-base'>{product.rating.rate}</h4> 
       </div>
-      <div className=' bg-gray-300 border-b-2 h-[100px] min-w-[156px] sm:min-w-[180px] flex justify-center items-center'>
+      <div id="containerButtonsProduct" className=' bg-gray-300 border-b-2 h-[100px] min-w-[156px] sm:min-w-[180px] flex justify-center items-center'>
         {regexUUID.test(product.id) && <ButtonOpenModalEdit onClick={handleEditButtonClick} />}
         {regexUUID.test(product.id) && <ButtonOpenModalDelete onClick={handleDeleteButtonClick}/>}     
       </div>

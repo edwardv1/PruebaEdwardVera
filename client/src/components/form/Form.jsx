@@ -191,91 +191,97 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
     };
  
   return (
-    <div data-testid="formTestId" className=' flex flex-col w-[300px] sm:w-[400px]'>
+    <div id="formCreateUpdate" data-testid="formTestId" className=' flex flex-col w-[300px] sm:w-[400px]'>
         {
           isEdit ?
-          <h1 className=' text-blue-500'><b>Edit Product</b></h1>
+          <h1 id="titleUpdate" className=' text-blue-500'><b>Edit Product</b></h1>
           :
-          <h1 className=' text-blue-500'><b>Create Product</b></h1>
+          <h1 id="titleCreate" className=' text-blue-500'><b>Create Product</b></h1>
         }
-        <form onSubmit={isEdit ? handleSubmitUpdate : handleSubmit} >
+        <form id="formInModal" onSubmit={isEdit ? handleSubmitUpdate : handleSubmit} >
             <div>
-                <div className="flex flex-col flex-grow">
-                    <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Name</label>
+                <div id="inputName" className="flex flex-col flex-grow">
+                    <label id='labelNameForm' htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Name</label>
                     <input 
                     type="text" 
                     name="name" 
+                    id='inputNameForm'
                     value={input.name} 
                     className=" w-full rounded-lg pl-2 border-2 border-blue-500 h-[30px] 2xl:h-[35px]"
                     placeholder="Enter a name..."
                     onChange={(event) => handleInputChange(event)}
                     />
                     <section className="min-h-[20px] md:min-h-[28px] text-start text-[12px] xs:text-sm md:text-lg ">
-                        {errors.name ? <p className="md:pl-1 text-red-600 ">{errors.name}</p> : null}
+                        {errors.name ? <p id='errorNameForm' className="md:pl-1 text-red-600 ">{errors.name}</p> : null}
                     </section>
                 </div>
-                <div className="flex flex-col flex-grow">
-                    <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Image</label>
+                <div id="inputImage" className="flex flex-col flex-grow">
+                    <label id='labelImageForm' htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Image</label>
                     <input 
                     type="text" 
                     name="image" 
+                    id='inputNameForm'
                     value={input.image} 
                     className=" w-full rounded-lg pl-2 border-2 border-blue-500 h-[30px] 2xl:h-[35px]"
                     placeholder="Enter an URL..."
                     onChange={(event) => handleInputChange(event)}
                     />
                     <section className="min-h-[20px] md:min-h-[28px] text-start xs:text-sm  text-[12px] md:text-lg">
-                        {errors.image ? <p className="md:pl-1 text-red-600">{errors.image}</p> : null}
+                        {errors.image ? <p id='errorImageForm' className="md:pl-1 text-red-600">{errors.image}</p> : null}
                     </section>
                 </div>
-                <div className="flex flex-col flex-grow">
-                    <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Category</label>
+                <div id="inputCategory" className="flex flex-col flex-grow">
+                    <label id='labelCategoryForm' htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Category</label>
                     <input 
                     type="text" 
                     name="category" 
+                    id='inputCategoryForm'
                     value={input.category} 
                     className=" w-full rounded-lg pl-2 border-2 border-blue-500 h-[30px] 2xl:h-[35px]"
                     placeholder="Enter a category..."
                     onChange={(event) => handleInputChange(event)}
                     />
                     <section className="min-h-[20px] md:min-h-[28px] text-start xs:text-sm  text-[12px] md:text-lg">
-                        {errors.category ? <p className="md:pl-1 text-red-600">{errors.category}</p> : null}
+                        {errors.category ? <p id='errorCategoryForm' className="md:pl-1 text-red-600">{errors.category}</p> : null}
                     </section>
                 </div>
-                <div className="flex flex-col flex-grow">
-                    <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Price</label>
+                <div id="inputPrice" className="flex flex-col flex-grow">
+                    <label id='labelPriceForm' htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Price</label>
                     <input 
                     type="text" 
-                    name="price" 
+                    name="price"
+                    id='inputPriceForm'
                     value={input.price} 
                     className=" w-full rounded-lg pl-2 border-2 border-blue-500 h-[30px] 2xl:h-[35px]"
                     placeholder="Enter a price..."
                     onChange={(event) => handleInputChange(event)}
                     />
                     <section className="min-h-[20px] md:min-h-[28px] text-start xs:text-sm  text-[12px] md:text-lg">
-                        {errors.price ? <p className="md:pl-1 text-red-600">{errors.price}</p> : null}
+                        {errors.price ? <p id='errorPriceForm' className="md:pl-1 text-red-600">{errors.price}</p> : null}
                     </section>
                 </div>
-                <div className="flex flex-col flex-grow">
-                    <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Reviews rating</label>
+                <div id="inputReview" className="flex flex-col flex-grow">
+                    <label id='labelReviewForm' htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Reviews rating</label>
                     <input 
                     type="text" 
                     name="review" 
+                    id='inputReviewForm'
                     value={input.review} 
                     className=" w-full rounded-lg pl-2 border-2 border-blue-500 h-[30px] 2xl:h-[35px]"
                     placeholder="Enter a reviews rating..."
                     onChange={(event) => handleInputChange(event)}
                     />
                     <section className="min-h-[20px] md:min-h-[28px] text-start xs:text-sm  text-[12px] md:text-lg">
-                        {errors.review ? <p className="md:pl-1 text-red-600">{errors.review}</p> : null}
+                        {errors.review ? <p id='errorReviewForm' className="md:pl-1 text-red-600">{errors.review}</p> : null}
                     </section>
                 </div>
             </div>
-            <div className="flex flex-col text-black text-sm md:text-lg xl:text-xl">
-                <label htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Description</label>
+            <div id="inputDescription" className="flex flex-col text-black text-sm md:text-lg xl:text-xl">
+                <label id='labelDescriptionForm' htmlFor="input" className=" w-max bg-none text-sm md:text-lg xl:text-xl text-black">Description</label>
                 <textarea 
                     type="text" 
                     name="description" 
+                    id='inputDescriptionForm'
                     value={input.description} 
                     className=" w-full h-[70px] sm:h-[100px] md:h-[120px] rounded-lg pl-2 pb-12 sm:pb-14 text-start border-2 border-blue-500 "
                     placeholder="Enter a description here..."
@@ -283,15 +289,15 @@ export default function Form({ onCancel, isEdit, productToUpdate }) {
                     />
                     <section className="min-h-[20px] text-start text-[12px] xs:text-sm md:text-lg md:min-h-[28px]">
                     {errors.description ? (
-                        <p className="md:pl-1 text-red-600">{errors.description}</p>
+                        <p id='errorDescriptionForm' className="md:pl-1 text-red-600">{errors.description}</p>
                         ) : (
                         input.description && !errors.description ? (
-                            <p className="md:pl-1 text-lime-600">{`Maximum of  500 characters (${input.description.length}/500)`}</p>
+                            <p id='maxlengthDescriptionForm' className="md:pl-1 text-lime-600">{`Maximum of  500 characters (${input.description.length}/500)`}</p>
                         ) : null
                     )}
                     </section>
             </div>
-            <div className="flex justify-center items-center gap-6">
+            <div id="containerButtonsForm" className="flex justify-center items-center gap-6">
               <ButtonCancel onClick={onCancel}/> 
               {
                 isEdit ? 
